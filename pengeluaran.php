@@ -33,34 +33,38 @@ $sekarang =mysqli_query($koneksi, "SELECT jumlah FROM pengeluaran
 WHERE tgl_pengeluaran = CURDATE()");
 $sekarang = mysqli_fetch_array($sekarang);
 
-$satuhari =mysqli_query($koneksi, "SELECT jumlah FROM pengeluaran
-WHERE tgl_pengeluaran = CURDATE() - INTERVAL 1 DAY");
-$satuhari= mysqli_fetch_array($satuhari);
+$satuminggu =mysqli_query($koneksi, "SELECT jumlah FROM pengeluaran
+WHERE tgl_pengeluaran = CURDATE() - INTERVAL 1 WEEK");
+$satuminggu= mysqli_fetch_array($satuminggu);
 
 
-$duahari =mysqli_query($koneksi, "SELECT jumlah FROM pengeluaran
-WHERE tgl_pengeluaran = CURDATE() - INTERVAL 2 DAY");
-$duahari= mysqli_fetch_array($duahari);
+$duaminggu =mysqli_query($koneksi, "SELECT jumlah FROM pengeluaran
+WHERE tgl_pengeluaran = CURDATE() - INTERVAL 2 WEEK");
+$duaminggu= mysqli_fetch_array($duaminggu);
 
-$tigahari =mysqli_query($koneksi, "SELECT jumlah FROM pengeluaran
-WHERE tgl_pengeluaran = CURDATE() - INTERVAL 3 DAY");
-$tigahari= mysqli_fetch_array($tigahari);
+$tigaminggu =mysqli_query($koneksi, "SELECT jumlah FROM pengeluaran
+WHERE tgl_pengeluaran = CURDATE() - INTERVAL 3 WEEK");
+$tigaminggu= mysqli_fetch_array($tigaminggu);
 
-$empathari =mysqli_query($koneksi, "SELECT jumlah FROM pengeluaran
-WHERE tgl_pengeluaran = CURDATE() - INTERVAL 4 DAY");
-$empathari= mysqli_fetch_array($empathari);
+$empatminggu =mysqli_query($koneksi, "SELECT jumlah FROM pengeluaran
+WHERE tgl_pengeluaran = CURDATE() - INTERVAL 4 WEEK");
+$empatminggu= mysqli_fetch_array($empatminggu);
 
-$limahari =mysqli_query($koneksi, "SELECT jumlah FROM pengeluaran
-WHERE tgl_pengeluaran = CURDATE() - INTERVAL 5 DAY");
-$limahari= mysqli_fetch_array($limahari);
+$limaminggu =mysqli_query($koneksi, "SELECT jumlah FROM pengeluaran
+WHERE tgl_pengeluaran = CURDATE() - INTERVAL 5 WEEK");
+$limaminggu= mysqli_fetch_array($limaminggu);
 
-$enamhari =mysqli_query($koneksi, "SELECT jumlah FROM pengeluaran
-WHERE tgl_pengeluaran = CURDATE() - INTERVAL 6 DAY");
-$enamhari= mysqli_fetch_array($enamhari);
+$enamminggu =mysqli_query($koneksi, "SELECT jumlah FROM pengeluaran
+WHERE tgl_pengeluaran = CURDATE() - INTERVAL 6 WEEK");
+$enamminggu= mysqli_fetch_array($enamminggu);
 
-$tujuhhari =mysqli_query($koneksi, "SELECT jumlah FROM pengeluaran
-WHERE tgl_pengeluaran = CURDATE() - INTERVAL 7 DAY");
-$tujuhhari= mysqli_fetch_array($tujuhhari);
+$tujuhminggu =mysqli_query($koneksi, "SELECT jumlah FROM pengeluaran
+WHERE tgl_pengeluaran = CURDATE() - INTERVAL 7 WEEK");
+$tujuhminggu= mysqli_fetch_array($tujuhminggu);
+
+$delapanminggu =mysqli_query($koneksi, "SELECT jumlah FROM pengeluaran
+WHERE tgl_pengeluaran = CURDATE() - INTERVAL 8 WEEK");
+$delapanminggu= mysqli_fetch_array($delapanminggu);
 ?>   
      <!-- Main Content -->
       <div id="content">
@@ -496,7 +500,7 @@ var ctx = document.getElementById("myAreaChart");
 var myLineChart = new Chart(ctx, {
   type: 'line',
   data: {
-    labels: ["7 hari lalu","6 hari lalu", "5 hari lalu", "4 hari lalu", "3 hari lalu", "2 hari lalu", "1 hari lalu"],
+    labels: ["7 minggu lalu","6 minggu lalu", "5 minggu lalu", "4 minggu lalu", "3 minggu lalu", "2 minggu lalu", "1 minggu lalu"],
     datasets: [{
       label: "Pendapatan",
       lineTension: 0.3,
@@ -510,7 +514,7 @@ var myLineChart = new Chart(ctx, {
       pointHoverBorderColor: "rgba(78, 115, 223, 1)",
       pointHitRadius: 10,
       pointBorderWidth: 2,
-      data: [<?php echo $tujuhhari['0']?>, <?php echo $enamhari['0'] ?>, <?php echo $limahari['0'] ?>, <?php echo $empathari['0'] ?>, <?php echo $tigahari['0'] ?>, <?php echo $duahari['0'] ?>, <?php echo $satuhari['0'] ?>],
+      data: [<?php echo $delapanminggu?>,<?php echo $tujuhminggu['0']?>, <?php echo $enamminggu['0'] ?>, <?php echo $limaminggu['0'] ?>, <?php echo $empatminggu['0'] ?>, <?php echo $tigaminggu['0'] ?>, <?php echo $duaminggu['0'] ?>, <?php echo $satuminggu['0'] ?>],
     }],
   },
   options: {
